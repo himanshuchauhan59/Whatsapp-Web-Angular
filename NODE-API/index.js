@@ -1,5 +1,6 @@
 import express  from "express";
-import routes from './routes/router.js'
+import routes from './routes/router.js';
+import cors from 'cors';
 const app = express();
 const PORT = 3000;
 
@@ -12,6 +13,7 @@ app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
+app.options('*', cors()) 
 app.use(routes)
 
 // error handlers
